@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBattleUserTable extends Migration
+class CreateChoreUserScoreTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,17 @@ class CreateBattleUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('battle_user', function (Blueprint $table) {
+        Schema::create('chore_user_score', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('battle_id')->unsigned();
+            $table->integer('chore_id')->unsigned();
+            $table->integer('score')->default(0);
             $table->timestamps();
         });
 
-        Schema::table('battle_user', function (Blueprint $table) {
+        Schema::table('chore_user_score', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('battle_id')->references('id')->on('battles');
+            $table->foreign('chore_id')->references('id')->on('chores');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateBattleUserTable extends Migration
      */
     public function down()
     {
-        Schema::drop('battle_user');
+        Schema::drop('chore_user_score');
     }
 }
