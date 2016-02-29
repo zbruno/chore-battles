@@ -202,6 +202,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        /**
+         * Homemade
+         */
+        'Carbon'           => Carbon\Carbon::class,
+        'User'             => 'App\Models\User'
+
     ],
 
 ];
