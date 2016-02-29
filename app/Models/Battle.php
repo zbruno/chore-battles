@@ -1,5 +1,8 @@
 <?php namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Battle;
+
 class Battle extends Authenticatable
 {
     /*
@@ -16,6 +19,16 @@ class Battle extends Authenticatable
      */
     protected $fillable = [
         'title'
+    ];
+
+    /**
+     * The attributes that should be visible in arrays.
+     *
+     * @var array
+     */
+    protected $visible = [
+       'id',
+       'title',
     ];
 
     /**
