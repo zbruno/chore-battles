@@ -21,8 +21,7 @@ class BattleController extends Controller
      */
     public function index()
     {
-        $battles = DB::table('battles')
-                        ->join('battle_user', 'battles.id', '=', 'battle_user.battle_id')
+        $battles = Battle::join('battle_user', 'battles.id', '=', 'battle_user.battle_id')
                         ->where('battle_user.user_id', Auth::user()->id)
                         ->get();
 
@@ -41,8 +40,7 @@ class BattleController extends Controller
             // Execute
             $success_story = BattleHelper::createBattle($request);
 
-            $battles = DB::table('battles')
-                            ->join('battle_user', 'battles.id', '=', 'battle_user.battle_id')
+            $battles = Battle::join('battle_user', 'battles.id', '=', 'battle_user.battle_id')
                             ->where('battle_user.user_id', Auth::user()->id)
                             ->get();
 
